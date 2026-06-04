@@ -7,7 +7,7 @@ const Message = require("./Message");
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-app.use(cors({ origin: "http://localhost:5174" }));
+app.use(cors({ origin: "https://portfolio-ad7bd.web.app/" }));
 app.use(express.json());
 
 mongoose
