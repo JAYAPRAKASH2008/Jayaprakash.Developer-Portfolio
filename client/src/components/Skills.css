@@ -1,0 +1,99 @@
+.skills {
+  background: var(--bg2);
+  padding: 100px 0;
+}
+
+/* ── Section header (shared) ── */
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900; letter-spacing: -0.03em; margin-bottom: 12px;
+}
+.section-sub  { font-size: 15px; color: var(--text2); }
+.section-line {
+  width: 56px; height: 3px; margin: 16px auto 0;
+  background: var(--grad); border-radius: 2px;
+}
+
+/* ── Grid ── */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.skill-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.skill-card:hover {
+  border-color: rgba(233, 30, 140, 0.35);
+  transform: translateY(-4px);
+}
+
+/* ── Card title with pink dot ── */
+.skill-card__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.skill-card__title::before {
+  content: '';
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--pink);
+  flex-shrink: 0;
+}
+
+/* ── Pills row ── */
+.skill-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ── Individual pill — with icon ── */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  transition: all 0.2s;
+  cursor: default;
+}
+.tech-pill:hover {
+  border-color: rgba(233, 30, 140, 0.4);
+  color: var(--text);
+  background: rgba(233, 30, 140, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ── Icon inside pill ── */
+.pill-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .skills__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .skills__grid { grid-template-columns: 1fr; }
+}

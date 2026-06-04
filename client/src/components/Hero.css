@@ -1,0 +1,81 @@
+.hero {
+  min-height:100vh; padding-top:var(--nav-h);
+  display:flex; align-items:center;
+  position:relative; overflow:hidden;
+}
+.hero__blob { position:absolute; border-radius:50%; pointer-events:none; filter:blur(80px); }
+.hero__blob--1 { width:600px; height:600px; background:radial-gradient(circle,rgba(233,30,140,.13) 0%,transparent 70%); top:-150px; right:-150px; }
+.hero__blob--2 { width:400px; height:400px; background:radial-gradient(circle,rgba(155,89,182,.1) 0%,transparent 70%); bottom:-100px; left:-80px; }
+
+.hero__inner {
+  display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:64px;
+  min-height:calc(100vh - var(--nav-h)); padding:60px 0 80px; position:relative; z-index:1;
+}
+
+.hero__tag {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(233,30,140,.1); border:1px solid rgba(233,30,140,.25);
+  padding:6px 14px; border-radius:100px;
+  font-size:12px; font-weight:500; color:var(--pink);
+  margin-bottom:24px; letter-spacing:.04em;
+}
+.hero__dot { width:7px; height:7px; background:var(--pink); border-radius:50%; animation:pulse 2s infinite; display:block; }
+
+.hero__name { font-size:clamp(2.6rem,5vw,4rem); font-weight:900; line-height:1.08; letter-spacing:-.03em; margin-bottom:14px; }
+.hero__role {
+  font-size:clamp(1.1rem,2vw,1.45rem); font-weight:700; margin-bottom:20px;
+  background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero__desc { font-size:15px; line-height:1.8; color:var(--text2); max-width:490px; margin-bottom:32px; }
+
+.hero__cta { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 26px; border-radius:10px;
+  font-size:14px; font-weight:600; transition:all .25s;
+  font-family:"Inter",sans-serif;
+}
+.btn--pink { background:var(--grad135); color:#fff; box-shadow:0 4px 20px rgba(233,30,140,.35); }
+.btn--pink:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(233,30,140,.5); }
+.btn--ghost { background:transparent; color:var(--text2); border:1px solid rgba(255,255,255,.12); }
+.btn--ghost:hover { border-color:var(--pink); color:var(--pink); transform:translateY(-2px); }
+
+.hero__stats { display:flex; gap:14px; flex-wrap:wrap; }
+.hero__stat {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:12px; padding:14px 18px; text-align:center; min-width:80px;
+  transition:all .3s;
+}
+.hero__stat:hover { border-color:rgba(233,30,140,.4); transform:translateY(-3px); }
+.hero__stat-num   { font-size:1.45rem; font-weight:800; display:block; }
+.hero__stat-label { font-size:11px; color:var(--text3); font-weight:500; }
+
+.hero__right { display:flex; justify-content:center; align-items:center; position:relative; }
+.hero__ring {
+  width:300px; height:300px; border-radius:50%; background:var(--grad135); padding:3px;
+  animation:glow 4s ease-in-out infinite,float 6s ease-in-out infinite; flex-shrink:0;
+}
+.hero__ring-inner { width:100%; height:100%; border-radius:50%; background:var(--bg2); overflow:hidden; }
+.hero__ring-inner img { width:100%; height:100%; object-fit:cover; object-position:top; }
+
+.hero__float {
+  position:absolute; width:44px; height:44px; border-radius:50%; background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,.3); transition:transform .25s;
+}
+.hero__float:hover { transform:scale(1.15) !important; }
+.hero__float--gh { top:14%; right:0; }
+.hero__float--li { bottom:20%; left:0; }
+
+.hero__scroll {
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-size:11px; color:var(--text3); letter-spacing:.12em; text-transform:uppercase;
+}
+.hero__mouse { width:22px; height:34px; border:2px solid var(--text3); border-radius:11px; position:relative; }
+.hero__mouse::after {
+  content:''; position:absolute; width:3px; height:7px; background:var(--pink);
+  border-radius:2px; left:50%; transform:translateX(-50%); top:5px; animation:float 1.5s ease-in-out infinite;
+}
+
+@media(max-width:860px) { .hero__inner{grid-template-columns:1fr;} .hero__right{display:none;} }
